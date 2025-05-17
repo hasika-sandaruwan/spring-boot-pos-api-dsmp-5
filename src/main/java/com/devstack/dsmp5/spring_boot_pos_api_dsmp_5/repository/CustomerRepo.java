@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CustomerRepo extends JpaRepository<Customer, String> {
 
-    @Query(value = "SELECT * FROM customer WHERE name LIKE %?1% OR address LIKE %?1%", nativeQuery = true)
+    @Query(value = "SELECT * FROM customer WHERE customer_name LIKE %?1% OR customer_address LIKE %?1%", nativeQuery = true)
     Page<Customer> searchAll(String searchText, Pageable pageable);
 
 }
